@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.routers import records
 
 app = FastAPI(
     title="Secure Data Platform API",
@@ -6,6 +7,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
+app.include_router(records.router)
 
 @app.get("/")
 def root():
